@@ -1,11 +1,11 @@
 <?php
 /*
 Plugin Name: Smarter revisions
-Plugin URI:
+Plugin URI: https://github.com/renegeuze/wp_plugins-smarter_revisions
 Description:
 Version: Master
 Author: René Geuze
-Author URI: http://github.com/renegeuze
+Author URI: https://github.com/renegeuze
 Copyright: Ask René Geuze
 */
 use ReneGeuze\SmarterRevisions\Bootstrap;
