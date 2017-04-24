@@ -20,6 +20,7 @@ to go through so they might feel less overwhelmed.
 
 * Decent readme
 * More code comments
+* Something with WP timezone settings
 
 ### Should have
 
