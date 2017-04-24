@@ -84,7 +84,7 @@ class Bootstrap
 	 */
 	public function getIntervals()
 	{
-		return [
+		$intervals = [
 			[
 				'name' => '1 day',
 				'interval' => new DateInterval('P1D'),
@@ -110,9 +110,20 @@ class Bootstrap
 				'found' => 0,
 			],
 		];
+
+		// TODO usort once custom intervals are implemented
+
+		// Filter out intervals where max is 0
+		// Note that null is valid and it means infinite
+		return array_filter($intervals, function($interval) {
+			if ($interval['max'] === 0) {
+				return false;
+			}
+			return true;
+		});
 	}
 
-	public function deleteRevisions($revisions)
+	public function deleteRevisions(array $revisions)
 	{
 		$totalRevisions = count($revisions);
 
@@ -184,7 +195,20 @@ class Bootstrap
 		}
 
 		foreach ($toDelete as $revision) {
-			wp_delete_post_revision($revision->ID);
+			$this->deleteRevision($revision->ID);
 		}
+		return $this;
+	}
+
+	/**
+	 * Actual deleting, wrapped so our main function body does not rely on
+	 * specific WordPress functions
+	 * @param  WP_Post $revision [description]
+	 * @return object $this           [description]
+	 */
+	public function deleteRevision($revision)
+	{
+		wp_delete_post_revision($revision->ID);
+		return $this;
 	}
 }
