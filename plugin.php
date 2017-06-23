@@ -2,7 +2,7 @@
 /*
 Plugin Name: Smarter revisions
 Plugin URI: https://github.com/renegeuze/wp_plugins-smarter_revisions
-Description:
+Description: Keep your revision list from flooding while maintaining old revisions
 Version: Master
 Author: René Geuze
 Author URI: https://github.com/renegeuze
@@ -19,4 +19,4 @@ if (true === file_exists(__DIR__ . '/vendor/autoload.php')) {
 	require __DIR__ . '/src/Bootstrap.php';
 }
 
-new Bootstrap();
+do_action('smarter_revisions/bootstrap', new Bootstrap());
