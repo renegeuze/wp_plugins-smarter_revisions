@@ -3,6 +3,7 @@ namespace ReneGeuze\SmarterRevisions;
 
 use DateInterval;
 use DateTime;
+use WP_Post;
 
 class Bootstrap
 {
@@ -195,7 +196,7 @@ class Bootstrap
 		}
 
 		foreach ($toDelete as $revision) {
-			$this->deleteRevision($revision->ID);
+			$this->deleteRevision($revision);
 		}
 		return $this;
 	}
@@ -206,7 +207,7 @@ class Bootstrap
 	 * @param  WP_Post $revision [description]
 	 * @return object $this           [description]
 	 */
-	public function deleteRevision($revision)
+	public function deleteRevision(WP_Post $revision)
 	{
 		wp_delete_post_revision($revision->ID);
 		return $this;
