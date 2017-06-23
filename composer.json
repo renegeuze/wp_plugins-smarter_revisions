@@ -1,16 +1,16 @@
 {
-	"name": "renegeuze/wp_plugins-smarter_revisions",
-	"type": "wordpress-plugin",
-	"require": {
-		"php":">=7.0",
-		"composer/installers": "~1.0",
-	},
-	"extra": {
-		"installer-name": "renegeuze-smarter-revisions"
-	},
-	"autoload": {
-		"psr-4": {
-			"ReneGeuze\\SmarterRevisions\\": "src/"
-		}
-	}
+    "name": "renegeuze/wp_plugins-smarter_revisions",
+    "type": "wordpress-plugin",
+    "require": {
+        "php":">=7.0",
+        "composer/installers": "~1.0"
+    },
+    "extra": {
+        "installer-name": "renegeuze-smarter-revisions"
+    },
+    "autoload": {
+        "psr-4": {
+            "ReneGeuze\\SmarterRevisions\\": "src/"
+        }
+    }
 }
